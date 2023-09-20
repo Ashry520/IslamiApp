@@ -59,7 +59,7 @@ class _SebhaTabState extends State<SebhaTab> {
                 width: 60,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
-                  color: MyTheme.primaryLight,
+                  color: MyTheme.whiteColor,
                 ),
                 child: Center(
                     child: Text('$tasbihNum',
