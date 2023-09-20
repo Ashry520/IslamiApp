@@ -35,5 +35,6 @@ class HadethTab extends StatelessWidget {
 
   void loadHadethFile() {
 
+    return;
   }
 }
