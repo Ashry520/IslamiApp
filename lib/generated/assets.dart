@@ -116,7 +116,9 @@ class Assets {
   static const String files97 = 'assets/files/97.txt';
   static const String files98 = 'assets/files/98.txt';
   static const String files99 = 'assets/files/99.txt';
+  static const String filesAhadeth = 'assets/files/ahadeth.txt';
   static const String imagesBg3 = 'assets/images/bg3.png';
+  static const String imagesHadethLogo = 'assets/images/hadeth_logo.png';
   static const String imagesIconHadeth = 'assets/images/icon_hadeth.png';
   static const String imagesIconQuran = 'assets/images/icon_quran.png';
   static const String imagesIconRadio = 'assets/images/icon_radio.png';
@@ -125,4 +127,5 @@ class Assets {
   static const String imagesRadio = 'assets/images/radio.png';
   static const String imagesSebhaBody = 'assets/images/sebha_body.png';
   static const String imagesSebhaHead = 'assets/images/sebha_head.png';
+
 }
