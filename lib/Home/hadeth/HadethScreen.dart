@@ -13,7 +13,7 @@ class HadethScreen extends StatefulWidget {
 class _HadethScreenState extends State<HadethScreen> {
   @override
   Widget build(BuildContext context) {
-    var args = ModalRoute.of(context)?.settings.arguments as Hadeth ;
+    var args = ModalRoute.of(context)?.settings.arguments as Hadeth;
     return Stack(
       children: [
         Image.asset(

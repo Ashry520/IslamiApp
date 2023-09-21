@@ -31,6 +31,9 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_native_splash: ^2.3.2
+  flutter_localizations:
+    sdk: flutter
+  intl: any
 
 
 
@@ -41,6 +44,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -54,7 +58,7 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-
+  generate: true
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
