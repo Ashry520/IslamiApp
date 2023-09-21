@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class HadethTab extends StatelessWidget {
   @override
@@ -33,8 +34,8 @@ class HadethTab extends StatelessWidget {
     );
   }
 
-  void loadHadethFile() {
-
-    return;
+  void loadHadethFile()async{
+    String ahadethContent = await rootBundle.loadString('assets/files/ahadeth.txt');
+    List<String> hadethList = ahadethContent.split('#\r\n');
   }
 }

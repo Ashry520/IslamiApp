@@ -127,5 +127,7 @@ class Assets {
   static const String imagesRadio = 'assets/images/radio.png';
   static const String imagesSebhaBody = 'assets/images/sebha_body.png';
   static const String imagesSebhaHead = 'assets/images/sebha_head.png';
+  static const String imagesSplashdark = 'assets/images/splashdark.png';
+  static const String imagesSplashlight = 'assets/images/splashlight.png';
 
 }
