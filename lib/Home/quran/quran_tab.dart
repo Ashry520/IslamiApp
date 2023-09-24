@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:islamic/Home/quran/SurahName.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islamic/my_theme.dart';
+import 'package:islamic/provider/app_config_provider.dart';
+import 'package:provider/provider.dart';
 
 class QuranTab extends StatelessWidget {
   List<String> surahNames = [
@@ -121,16 +125,22 @@ class QuranTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<AppConfigProvider>(context);
     return Column(
       children: [
         Center(child: Image.asset('assets/images/quran_logo.png')),
         Divider(
-          color: Theme.of(context).primaryColor,
+          color: provider.appTheme == ThemeMode.light
+              ? Theme.of(context).primaryColor
+              : MyTheme.yellowColor,
           thickness: 3,
         ),
-        Text('Surah Name', style: Theme.of(context).textTheme.titleMedium),
+        Text(AppLocalizations.of(context)!.surah_name,
+            style: Theme.of(context).textTheme.titleMedium),
         Divider(
-          color: Theme.of(context).primaryColor,
+          color: provider.appTheme == ThemeMode.light
+              ? Theme.of(context).primaryColor
+              : MyTheme.yellowColor,
           thickness: 3,
         ),
         Expanded(
@@ -144,7 +154,9 @@ class QuranTab extends StatelessWidget {
             itemCount: surahNames.length,
             separatorBuilder: (BuildContext context, int index) {
               return Divider(
-                color: Theme.of(context).primaryColor,
+                color: provider.appTheme == ThemeMode.light
+                    ? Theme.of(context).primaryColor
+                    : MyTheme.yellowColor,
                 thickness: 1,
               );
             },
