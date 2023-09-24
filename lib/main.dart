@@ -31,6 +31,8 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       theme: MyTheme.lightMode,
+      darkTheme: MyTheme.darkMode,
+      themeMode: provider.appTheme,
     );
   }
 }
