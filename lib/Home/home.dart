@@ -4,7 +4,8 @@ import 'package:islamic/Home/quran/quran_tab.dart';
 import 'package:islamic/Home/radio/radio_tab.dart';
 import 'package:islamic/Home/sebha/sebha_tab.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:islamic/Home/settings/settings_tab.dart';
+
+import '../settings/settings_tab.dart';
 
 class Home extends StatefulWidget {
   static const String routeName = 'SurahsScreen';

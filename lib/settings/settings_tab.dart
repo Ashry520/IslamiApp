@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:islamic/Home/settings/LanguageBottomSheet.dart';
+import 'package:islamic/provider/app_config_provider.dart';
+import 'LanguageBottomSheet.dart';
+import 'package:provider/provider.dart';
+
 
 class SettingsTab extends StatefulWidget {
   @override
@@ -10,6 +13,7 @@ class SettingsTab extends StatefulWidget {
 class _SettingsTabState extends State<SettingsTab> {
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<AppConfigProvider>(context);
     return Container(
       child: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -38,7 +42,9 @@ class _SettingsTabState extends State<SettingsTab> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        AppLocalizations.of(context)!.english,
+                        provider.appLanguage == 'en'?
+                        AppLocalizations.of(context)!.english:
+                        AppLocalizations.of(context)!.arabic,
                         style: Theme.of(context).textTheme.titleSmall,
                       ),
                       Icon(Icons.arrow_drop_down),
