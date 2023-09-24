@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:islamic/Home/quran/SurahScreen.dart';
+import 'package:islamic/Home/shared/constant.dart';
+import 'package:islamic/my_theme.dart';
+import 'package:islamic/provider/app_config_provider.dart';
+import 'package:provider/provider.dart';
 
 class SurahNames extends StatelessWidget {
   String surahName;
@@ -9,6 +13,7 @@ class SurahNames extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<AppConfigProvider>(context);
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -19,7 +24,12 @@ class SurahNames extends StatelessWidget {
           },
           child: Text(
             surahName,
-            style: Theme.of(context).textTheme.titleSmall,
+            style: appTheme == ThemeMode.light
+                ? Theme.of(context).textTheme.titleSmall
+                : Theme.of(context)
+                    .textTheme
+                    .titleSmall!
+                    .copyWith(color: MyTheme.whiteColor),
             textAlign: TextAlign.center,
           ),
         ),
@@ -28,7 +38,12 @@ class SurahNames extends StatelessWidget {
         ),
         Text(
           '${index + 1}',
-          style: Theme.of(context).textTheme.titleSmall,
+          style: appTheme == ThemeMode.light
+              ? Theme.of(context).textTheme.titleSmall
+              : Theme.of(context)
+                  .textTheme
+                  .titleSmall!
+                  .copyWith(color: MyTheme.whiteColor),
         )
       ],
     );

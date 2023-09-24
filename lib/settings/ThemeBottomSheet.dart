@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islamic/Home/shared/constant.dart';
 import 'package:islamic/Home/shared/shared_pref.dart';
 import 'package:islamic/my_theme.dart';
 import 'package:islamic/provider/app_config_provider.dart';
 import 'package:provider/provider.dart';
 
-import '../Home/shared/constant.dart';
-
-class LanguageBottomSheet extends StatefulWidget {
+class ThemeBottomSheet extends StatefulWidget {
   @override
-  State<LanguageBottomSheet> createState() => _LanguageBottomSheetState();
+  State<ThemeBottomSheet> createState() => _ThemeBottomSheetState();
 }
 
-class _LanguageBottomSheetState extends State<LanguageBottomSheet> {
+class _ThemeBottomSheetState extends State<ThemeBottomSheet> {
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<AppConfigProvider>(context);
@@ -21,21 +20,21 @@ class _LanguageBottomSheetState extends State<LanguageBottomSheet> {
       children: [
         InkWell(
           onTap: () {
-            CacheHelper.saveData(key: 'lang', value: 'en')
-                .then((value) => provider.changeLanguage('en'));
+            CacheHelper.saveData(key: 'isLight', value: true)
+                .then((value) => provider.changeTheme(ThemeMode.light));
           },
-          child: appLanguage == 'en'
-              ? getSelectedItem(AppLocalizations.of(context)!.english)
-              : getUnselectedItem(AppLocalizations.of(context)!.english),
+          child: appTheme == ThemeMode.light
+              ? getSelectedItem(AppLocalizations.of(context)!.light)
+              : getUnselectedItem(AppLocalizations.of(context)!.light),
         ),
         InkWell(
           onTap: () {
-            CacheHelper.saveData(key: 'lang', value: 'ar')
-                .then((value) => provider.changeLanguage('ar'));
+            CacheHelper.saveData(key: 'isLight', value: false)
+                .then((value) => provider.changeTheme(ThemeMode.dark));
           },
-          child: appLanguage == 'ar'
-              ? getSelectedItem(AppLocalizations.of(context)!.arabic)
-              : getUnselectedItem(AppLocalizations.of(context)!.arabic),
+          child: appTheme == ThemeMode.dark
+              ? getSelectedItem(AppLocalizations.of(context)!.dark)
+              : getUnselectedItem(AppLocalizations.of(context)!.dark),
         ),
       ],
     );

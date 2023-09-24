@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:islamic/my_theme.dart';
+import 'package:islamic/provider/app_config_provider.dart';
+import 'package:provider/provider.dart';
+
+import '../shared/constant.dart';
 
 class RadioTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<AppConfigProvider>(context);
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -22,21 +27,30 @@ class RadioTab extends StatelessWidget {
             children: [
               IconButton(
                 iconSize: 72,
-                icon: Icon(Icons.skip_previous, color: MyTheme.primaryLight),
+                icon: Icon(Icons.skip_previous,
+                    color: appTheme == ThemeMode.light
+                        ? Theme.of(context).primaryColor
+                        : MyTheme.yellowColor),
                 onPressed: () {
                   // ...
                 },
               ),
               IconButton(
                 iconSize: 72,
-                icon: Icon(Icons.play_arrow, color: MyTheme.primaryLight),
+                icon: Icon(Icons.play_arrow,
+                    color: appTheme == ThemeMode.light
+                        ? Theme.of(context).primaryColor
+                        : MyTheme.yellowColor),
                 onPressed: () {
                   // ...
                 },
               ),
               IconButton(
                 iconSize: 72,
-                icon: Icon(Icons.skip_next, color: MyTheme.primaryLight),
+                icon: Icon(Icons.skip_next,
+                    color: appTheme == ThemeMode.light
+                        ? Theme.of(context).primaryColor
+                        : MyTheme.yellowColor),
                 onPressed: () {
                   // ...
                 },

@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:islamic/my_theme.dart';
+import 'package:islamic/provider/app_config_provider.dart';
+import 'package:provider/provider.dart';
+
+import '../shared/constant.dart';
 
 class SebhaTab extends StatefulWidget {
   @override
@@ -19,11 +23,14 @@ class _SebhaTabState extends State<SebhaTab> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<AppConfigProvider>(context);
     return Column(
       children: [
         Stack(
           children: [
-            Center(child: Image.asset('assets/images/sebha_head.png')),
+            Center(child: appTheme == ThemeMode.light?
+            Image.asset('assets/images/sebha_head.png'):
+            Image.asset('assets/images/sebha_head_dark.png')),
             Center(
                 heightFactor: 1.5,
                 child: InkWell(
@@ -39,7 +46,9 @@ class _SebhaTabState extends State<SebhaTab> {
                   child: AnimatedRotation(
                       turns: turns,
                       duration: Duration(milliseconds: 100),
-                      child: Image.asset('assets/images/sebha_body.png')),
+                      child: appTheme == ThemeMode.light?
+                      Image.asset('assets/images/sebha_body.png'):
+                      Image.asset('assets/images/sebha_body_dark.png')),
                 )),
           ],
         ),
@@ -59,7 +68,9 @@ class _SebhaTabState extends State<SebhaTab> {
                 width: 60,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
-                  color: MyTheme.primaryLight,
+                  color: appTheme == ThemeMode.light
+                      ? Theme.of(context).primaryColor
+                      : MyTheme.primarydark,
                 ),
                 child: Center(
                     child: Text('$tasbihNum',
@@ -77,11 +88,17 @@ class _SebhaTabState extends State<SebhaTab> {
                 width: 160,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
-                  color: MyTheme.primaryLight,
+                  color: appTheme == ThemeMode.light
+                      ? Theme.of(context).primaryColor
+                      : MyTheme.yellowColor,
                 ),
                 child: Center(
                     child: Text('${tasbihat[index]}',
-                        style: Theme.of(context).textTheme.titleMedium)),
+                        style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                          color: appTheme == ThemeMode.light
+                              ? MyTheme.whiteColor
+                              : MyTheme.blackColor
+                        ))),
               ),
             ),
           ),
