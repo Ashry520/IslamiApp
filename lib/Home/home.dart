@@ -4,6 +4,7 @@ import 'package:islamic/Home/quran/quran_tab.dart';
 import 'package:islamic/Home/radio/radio_tab.dart';
 import 'package:islamic/Home/sebha/sebha_tab.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islamic/Home/settings/settings_tab.dart';
 
 class Home extends StatefulWidget {
   static const String routeName = 'SurahsScreen';
@@ -64,7 +65,11 @@ class _HomeState extends State<Home> {
                     AssetImage('assets/images/icon_radio.png'),
                   ),
                   label: AppLocalizations.of(context)!.radio,
-                )
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.settings),
+                  label: AppLocalizations.of(context)!.settings,
+                ),
               ],
             ),
           ),
@@ -74,5 +79,5 @@ class _HomeState extends State<Home> {
     );
   }
 
-  List<Widget> tabs = [QuranTab(), HadethTab(), SebhaTab(), RadioTab()];
+  List<Widget> tabs = [QuranTab(), HadethTab(), SebhaTab(), RadioTab(),SettingsTab()];
 }

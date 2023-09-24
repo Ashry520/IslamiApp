@@ -5,5 +5,12 @@
   "sebha" : "السبحة",
   "radio" : "الاذاعة",
   "surah_name" : "اسم السورة",
-  "hadeth_name" : "اسم الحديث"
+  "hadeth_name" : "اسم الحديث",
+  "settings" : "إعدادات",
+  "english" : "إنجليزي",
+  "arabic" : "عربي",
+  "theme" : "وضع",
+  "dark" : "مظلم",
+  "light" : "ضوء",
+  "language" : "اللغة"
 }
