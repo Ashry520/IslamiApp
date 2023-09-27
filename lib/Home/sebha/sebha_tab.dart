@@ -35,7 +35,7 @@ class _SebhaTabState extends State<SebhaTab> {
                 heightFactor: 1.5,
                 child: InkWell(
                   onTap: () {
-                    turns += 1 / 3;
+                    turns += 1 / 4;
                     tasbihNum++;
                     if (tasbihNum == 33) {
                       tasbihNum = 0;
@@ -45,7 +45,7 @@ class _SebhaTabState extends State<SebhaTab> {
                   },
                   child: AnimatedRotation(
                       turns: turns,
-                      duration: Duration(milliseconds: 100),
+                      duration: Duration(milliseconds: 150),
                       child: appTheme == ThemeMode.light?
                       Image.asset('assets/images/sebha_body.png'):
                       Image.asset('assets/images/sebha_body_dark.png')),
@@ -62,44 +62,40 @@ class _SebhaTabState extends State<SebhaTab> {
         Padding(
           padding: const EdgeInsets.all(30.0),
           child: Center(
-            child: Expanded(
-              child: Container(
-                height: 60,
-                width: 60,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  color: appTheme == ThemeMode.light
-                      ? Theme.of(context).primaryColor
-                      : MyTheme.primarydark,
-                ),
-                child: Center(
-                    child: Text('$tasbihNum',
-                        style: Theme.of(context).textTheme.titleMedium)),
+            child: Container(
+              height: 60,
+              width: 60,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                color: appTheme == ThemeMode.light
+                    ? Theme.of(context).primaryColor
+                    : MyTheme.primarydark,
               ),
+              child: Center(
+                  child: Text('$tasbihNum',
+                      style: Theme.of(context).textTheme.titleMedium)),
             ),
           ),
         ),
         Padding(
           padding: const EdgeInsets.all(10.0),
           child: Center(
-            child: Expanded(
-              child: Container(
-                height: 60,
-                width: 160,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  color: appTheme == ThemeMode.light
-                      ? Theme.of(context).primaryColor
-                      : MyTheme.yellowColor,
-                ),
-                child: Center(
-                    child: Text('${tasbihat[index]}',
-                        style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                          color: appTheme == ThemeMode.light
-                              ? MyTheme.whiteColor
-                              : MyTheme.blackColor
-                        ))),
+            child: Container(
+              height: 60,
+              width: 160,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                color: appTheme == ThemeMode.light
+                    ? Theme.of(context).primaryColor
+                    : MyTheme.yellowColor,
               ),
+              child: Center(
+                  child: Text('${tasbihat[index]}',
+                      style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                        color: appTheme == ThemeMode.light
+                            ? MyTheme.whiteColor
+                            : MyTheme.blackColor
+                      ))),
             ),
           ),
         ),
