@@ -3,6 +3,8 @@ import 'package:islamic/my_theme.dart';
 import 'package:islamic/provider/app_config_provider.dart';
 import 'package:provider/provider.dart';
 
+import '../shared/constant.dart';
+
 class RadioTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -26,7 +28,7 @@ class RadioTab extends StatelessWidget {
               IconButton(
                 iconSize: 72,
                 icon: Icon(Icons.skip_previous,
-                    color: provider.appTheme == ThemeMode.light
+                    color: appTheme == ThemeMode.light
                         ? Theme.of(context).primaryColor
                         : MyTheme.yellowColor),
                 onPressed: () {
@@ -36,7 +38,7 @@ class RadioTab extends StatelessWidget {
               IconButton(
                 iconSize: 72,
                 icon: Icon(Icons.play_arrow,
-                    color: provider.appTheme == ThemeMode.light
+                    color: appTheme == ThemeMode.light
                         ? Theme.of(context).primaryColor
                         : MyTheme.yellowColor),
                 onPressed: () {
@@ -46,7 +48,7 @@ class RadioTab extends StatelessWidget {
               IconButton(
                 iconSize: 72,
                 icon: Icon(Icons.skip_next,
-                    color: provider.appTheme == ThemeMode.light
+                    color: appTheme == ThemeMode.light
                         ? Theme.of(context).primaryColor
                         : MyTheme.yellowColor),
                 onPressed: () {

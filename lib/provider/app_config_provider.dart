@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:islamic/Home/shared/constant.dart';
 
 class AppConfigProvider extends ChangeNotifier {
-  String appLanguage = 'en';
-  ThemeMode appTheme = ThemeMode.light;
 
   void changeLanguage(String newLanguage) {
     if (appLanguage == newLanguage) {

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islamic/provider/app_config_provider.dart';
 import 'package:islamic/settings/ThemeBottomSheet.dart';
+import '../Home/shared/constant.dart';
 import 'LanguageBottomSheet.dart';
 import 'package:provider/provider.dart';
 
@@ -43,7 +44,7 @@ class _SettingsTabState extends State<SettingsTab> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        provider.appLanguage == 'en'?
+                        appLanguage == 'en'?
                         AppLocalizations.of(context)!.english:
                         AppLocalizations.of(context)!.arabic,
                         style: Theme.of(context).textTheme.titleSmall,
@@ -77,7 +78,7 @@ class _SettingsTabState extends State<SettingsTab> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        provider.appTheme == ThemeMode.light
+                        appTheme == ThemeMode.light
                             ? AppLocalizations.of(context)!.light
                             :AppLocalizations.of(context)!.dark,
                         style: Theme.of(context).textTheme.titleSmall,

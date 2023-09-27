@@ -5,6 +5,8 @@ import 'package:islamic/my_theme.dart';
 import 'package:islamic/provider/app_config_provider.dart';
 import 'package:provider/provider.dart';
 
+import '../shared/constant.dart';
+
 class SurahScreen extends StatefulWidget {
   static const String routeName = 'SurahScreen';
 
@@ -24,7 +26,7 @@ class _SurahScreenState extends State<SurahScreen> {
     }
     return Stack(
       children: [
-        provider.appTheme == ThemeMode.light
+        appTheme == ThemeMode.light
             ? Image.asset(
                 'assets/images/bg3.png',
                 height: double.infinity,
@@ -52,7 +54,7 @@ class _SurahScreenState extends State<SurahScreen> {
                       horizontal: MediaQuery.of(context).size.width * 0.07),
                   padding: EdgeInsets.all(8),
                   decoration: BoxDecoration(
-                      color: provider.appTheme == ThemeMode.light
+                      color: appTheme == ThemeMode.light
                           ? MyTheme.whiteColor
                           : MyTheme.primarydark,
                       borderRadius: BorderRadius.circular(30)),

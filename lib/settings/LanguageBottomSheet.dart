@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islamic/Home/shared/shared_pref.dart';
 import 'package:islamic/my_theme.dart';
 import 'package:islamic/provider/app_config_provider.dart';
 import 'package:provider/provider.dart';
+
+import '../Home/shared/constant.dart';
 
 class LanguageBottomSheet extends StatefulWidget {
   @override
@@ -18,17 +21,19 @@ class _LanguageBottomSheetState extends State<LanguageBottomSheet> {
       children: [
         InkWell(
           onTap: () {
-            provider.changeLanguage('en');
+            CacheHelper.saveData(key: 'lang', value: 'en')
+                .then((value) => provider.changeLanguage('en'));
           },
-          child: provider.appLanguage == 'en'
+          child: appLanguage == 'en'
               ? getSelectedItem(AppLocalizations.of(context)!.english)
               : getUnselectedItem(AppLocalizations.of(context)!.english),
         ),
         InkWell(
           onTap: () {
-            provider.changeLanguage('ar');
+            CacheHelper.saveData(key: 'lang', value: 'ar')
+                .then((value) => provider.changeLanguage('ar'));
           },
-          child: provider.appLanguage == 'ar'
+          child: appLanguage == 'ar'
               ? getSelectedItem(AppLocalizations.of(context)!.arabic)
               : getUnselectedItem(AppLocalizations.of(context)!.arabic),
         ),
@@ -59,9 +64,11 @@ class _LanguageBottomSheetState extends State<LanguageBottomSheet> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(text, style: Theme.of(context).textTheme.titleMedium!.copyWith(
-            color: MyTheme.blackColor
-          )),
+          Text(text,
+              style: Theme.of(context)
+                  .textTheme
+                  .titleMedium!
+                  .copyWith(color: MyTheme.blackColor)),
         ],
       ),
     );

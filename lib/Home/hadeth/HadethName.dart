@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islamic/Home/hadeth/HadethScreen.dart';
 import 'package:islamic/Home/hadeth/hadeth_tab.dart';
+import 'package:islamic/Home/shared/constant.dart';
 import 'package:islamic/my_theme.dart';
 import 'package:islamic/provider/app_config_provider.dart';
 import 'package:provider/provider.dart';
@@ -23,7 +24,7 @@ class HadethName extends StatelessWidget {
           },
           child: Text(
             hadeth.title,
-            style: provider.appTheme == ThemeMode.light
+            style: appTheme == ThemeMode.light
                 ? Theme.of(context).textTheme.titleSmall
                 : Theme.of(context)
                     .textTheme

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islamic/Home/quran/SurahName.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islamic/Home/shared/constant.dart';
 import 'package:islamic/my_theme.dart';
 import 'package:islamic/provider/app_config_provider.dart';
 import 'package:provider/provider.dart';
@@ -130,7 +131,7 @@ class QuranTab extends StatelessWidget {
       children: [
         Center(child: Image.asset('assets/images/quran_logo.png')),
         Divider(
-          color: provider.appTheme == ThemeMode.light
+          color: appTheme == ThemeMode.light
               ? Theme.of(context).primaryColor
               : MyTheme.yellowColor,
           thickness: 3,
@@ -138,7 +139,7 @@ class QuranTab extends StatelessWidget {
         Text(AppLocalizations.of(context)!.surah_name,
             style: Theme.of(context).textTheme.titleMedium),
         Divider(
-          color: provider.appTheme == ThemeMode.light
+          color: appTheme == ThemeMode.light
               ? Theme.of(context).primaryColor
               : MyTheme.yellowColor,
           thickness: 3,
@@ -154,7 +155,7 @@ class QuranTab extends StatelessWidget {
             itemCount: surahNames.length,
             separatorBuilder: (BuildContext context, int index) {
               return Divider(
-                color: provider.appTheme == ThemeMode.light
+                color: appTheme == ThemeMode.light
                     ? Theme.of(context).primaryColor
                     : MyTheme.yellowColor,
                 thickness: 1,

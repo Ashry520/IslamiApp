@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islamic/Home/shared/constant.dart';
+import 'package:islamic/Home/shared/shared_pref.dart';
 import 'package:islamic/my_theme.dart';
 import 'package:islamic/provider/app_config_provider.dart';
 import 'package:provider/provider.dart';
@@ -18,17 +20,19 @@ class _ThemeBottomSheetState extends State<ThemeBottomSheet> {
       children: [
         InkWell(
           onTap: () {
-            provider.changeTheme(ThemeMode.light);
+            CacheHelper.saveData(key: 'isLight', value: true)
+                .then((value) => provider.changeTheme(ThemeMode.light));
           },
-          child: provider.appTheme == ThemeMode.light
+          child: appTheme == ThemeMode.light
               ? getSelectedItem(AppLocalizations.of(context)!.light)
               : getUnselectedItem(AppLocalizations.of(context)!.light),
         ),
         InkWell(
           onTap: () {
-            provider.changeTheme(ThemeMode.dark);
+            CacheHelper.saveData(key: 'isLight', value: false)
+                .then((value) => provider.changeTheme(ThemeMode.dark));
           },
-          child: provider.appTheme == ThemeMode.dark
+          child: appTheme == ThemeMode.dark
               ? getSelectedItem(AppLocalizations.of(context)!.dark)
               : getUnselectedItem(AppLocalizations.of(context)!.dark),
         ),
@@ -59,9 +63,11 @@ class _ThemeBottomSheetState extends State<ThemeBottomSheet> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(text, style: Theme.of(context).textTheme.titleMedium!.copyWith(
-            color: MyTheme.blackColor
-          )),
+          Text(text,
+              style: Theme.of(context)
+                  .textTheme
+                  .titleMedium!
+                  .copyWith(color: MyTheme.blackColor)),
         ],
       ),
     );

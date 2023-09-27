@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islamic/Home/hadeth/HadethName.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islamic/Home/shared/constant.dart';
 import 'package:islamic/my_theme.dart';
 import 'package:islamic/provider/app_config_provider.dart';
 import 'package:provider/provider.dart';
@@ -23,14 +24,14 @@ class _HadethTabState extends State<HadethTab> {
       children: [
         Center(child: Image.asset('assets/images/hadeth_logo.png')),
         Divider(
-          color: provider.appTheme == ThemeMode.light
+          color: appTheme == ThemeMode.light
               ? Theme.of(context).primaryColor
               : MyTheme.yellowColor,
           thickness: 3,
         ),
         Text(AppLocalizations.of(context)!.hadeth_name, style: Theme.of(context).textTheme.titleMedium),
         Divider(
-          color: provider.appTheme == ThemeMode.light
+          color: appTheme == ThemeMode.light
               ? Theme.of(context).primaryColor
               : MyTheme.yellowColor,
           thickness: 3,
@@ -49,7 +50,7 @@ class _HadethTabState extends State<HadethTab> {
                   itemCount: ahadethList.length,
                   separatorBuilder: (BuildContext context, int index) {
                     return Divider(
-                      color: provider.appTheme == ThemeMode.light
+                      color: appTheme == ThemeMode.light
                           ? Theme.of(context).primaryColor
                           : MyTheme.yellowColor,
                       thickness: 1,

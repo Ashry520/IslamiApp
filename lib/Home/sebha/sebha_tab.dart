@@ -3,6 +3,8 @@ import 'package:islamic/my_theme.dart';
 import 'package:islamic/provider/app_config_provider.dart';
 import 'package:provider/provider.dart';
 
+import '../shared/constant.dart';
+
 class SebhaTab extends StatefulWidget {
   @override
   State<SebhaTab> createState() => _SebhaTabState();
@@ -26,7 +28,7 @@ class _SebhaTabState extends State<SebhaTab> {
       children: [
         Stack(
           children: [
-            Center(child: provider.appTheme == ThemeMode.light?
+            Center(child: appTheme == ThemeMode.light?
             Image.asset('assets/images/sebha_head.png'):
             Image.asset('assets/images/sebha_head_dark.png')),
             Center(
@@ -44,7 +46,7 @@ class _SebhaTabState extends State<SebhaTab> {
                   child: AnimatedRotation(
                       turns: turns,
                       duration: Duration(milliseconds: 100),
-                      child: provider.appTheme == ThemeMode.light?
+                      child: appTheme == ThemeMode.light?
                       Image.asset('assets/images/sebha_body.png'):
                       Image.asset('assets/images/sebha_body_dark.png')),
                 )),
@@ -66,7 +68,7 @@ class _SebhaTabState extends State<SebhaTab> {
                 width: 60,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
-                  color: provider.appTheme == ThemeMode.light
+                  color: appTheme == ThemeMode.light
                       ? Theme.of(context).primaryColor
                       : MyTheme.primarydark,
                 ),
@@ -86,14 +88,14 @@ class _SebhaTabState extends State<SebhaTab> {
                 width: 160,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
-                  color: provider.appTheme == ThemeMode.light
+                  color: appTheme == ThemeMode.light
                       ? Theme.of(context).primaryColor
                       : MyTheme.yellowColor,
                 ),
                 child: Center(
                     child: Text('${tasbihat[index]}',
                         style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                          color: provider.appTheme == ThemeMode.light
+                          color: appTheme == ThemeMode.light
                               ? MyTheme.whiteColor
                               : MyTheme.blackColor
                         ))),
